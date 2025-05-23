@@ -1,7 +1,9 @@
 import { useRef } from "react";
-import { styles } from "./styles";
 import { View, FlatList } from "react-native";
+
+import { styles } from "./styles";
 import { contacts } from "../../utils/contacts";
+
 import { Card } from "../../components/Card";
 import { Option } from "../../components/Option";
 
