@@ -7,7 +7,9 @@ import { contacts } from "../../utils/contacts";
 import { Card } from "../../components/Card";
 import { Option } from "../../components/Option";
 
-import Swipeable, { SwipeableMethods } from "react-native-gesture-handler/ReanimatedSwipeable";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import type { Swipeable as SwipeableType } from "react-native-gesture-handler";
+type SwipeableMethods = InstanceType<typeof SwipeableType>;
 
 export function Home() {
   const openSwipeableRef = useRef<SwipeableMethods | null>(null);
@@ -36,7 +38,7 @@ export function Home() {
               // overshootFriction={10}
               overshootRight={false}
               ref={swipeable => current = swipeable}
-              onSwipeableWillOpen={(direction) => onSwipeableWillOpen(direction, current)}
+              onSwipeableWillOpen={(direction: "left" | "right") => onSwipeableWillOpen(direction, current)}
 
               containerStyle={styles.swipeableContainer}
               renderRightActions={() => (
